@@ -2,10 +2,9 @@ dir=~/dotfiles
 olddir=~/dotfiles_old            
 files=".zshrc .tmux.conf .tmuxline.conf .vimrc .vim .gitconfig .oh-my-zsh-custom"
 
-sudo apt-get update && sudo apt-get install zsh git vim
+sudo apt-get update && sudo apt-get install zsh vim
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 chsh -s `which zsh`
-
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
