@@ -1,5 +1,6 @@
-export ZSH=/home/luke/.oh-my-zsh
-ZSH_THEME="clean"
+export ZSH=$HOME/.oh-my-zsh
+ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
+ZSH_THEME="lk"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git tmux ubuntu)
