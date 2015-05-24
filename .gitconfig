@@ -3,3 +3,5 @@
 [user]
 	name = Luke Kuszaj
 	email = luke@kuszaj.net
+[push]
+	default = simple
