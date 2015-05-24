@@ -4,10 +4,7 @@ execute pathogen#infect()
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'kolor'
 
-" My colors 
-colorscheme kolor
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -75,8 +72,9 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-"colorscheme solarized
-"set background=dark
+set background=dark
+colorscheme solarized
+let g:airline_theme = 'solarized'
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
