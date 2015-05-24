@@ -1,5 +1,5 @@
 export ZSH=/home/luke/.oh-my-zsh
-ZSH_THEME="pygmalion"
+ZSH_THEME="clean"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git tmux ubuntu)
@@ -9,3 +9,5 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR='vim'
 export TERM=xterm-256color
+eval "$(rbenv init -)"
+
