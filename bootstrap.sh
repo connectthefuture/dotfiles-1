@@ -1,6 +1,6 @@
 dir=~/dotfiles                    
 olddir=~/dotfiles_old            
-files=".zshrc .tmux.conf .vimrc .vim .gitconfig"
+files=".zshrc .tmux.conf .tmuxline.conf .vimrc .vim .gitconfig"
 
 sudo apt-get update && sudo apt-get install zsh git vim
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
@@ -15,12 +15,13 @@ echo "...done"
 echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
- 
+
+git submodule update --init
+
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/$file
-done
- 
+done 
