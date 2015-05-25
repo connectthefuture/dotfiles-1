@@ -1,3 +1,23 @@
+" Change mapleader
+let mapleader=","
+
+" Move more naturally up/down when wrapping is enabled.
+nnoremap j gj
+nnoremap k gk
+
+" Local dirs
+if !has('win32')
+  set backupdir=$DOTFILES/caches/vim
+  set directory=$DOTFILES/caches/vim
+  set undodir=$DOTFILES/caches/vim
+  let g:netrw_home = expand('$DOTFILES/caches/vim')
+endif
+
+" Create vimrc autocmd group and remove any existing vimrc autocmds,
+" in case .vimrc is re-sourced.
+augroup vimrc
+  autocmd!
+augroup END
 
 " Pathogen
 execute pathogen#infect()
@@ -13,19 +33,21 @@ set history=700
 filetype plugin on
 filetype indent on
 
-" Set to auto read when a file is changed from the outside
-set autoread
-
-" Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
-
-" Turn on the WiLd menu
-set wildmenu
-
+set autoread        " Set to auto read when a file is changed from the outside
+set cursorline      " Highlight current line
+set number          " Enable line numbers.
+set showtabline=2   " Always show tab bar.
+set so=7            " Set 7 lines to the cursor - when moving vertically using j/k
+set wildmenu        " Turn on the WiLd menu
 set wildignore=*.o,*~,*.pyc
+set noshowmode      " Don't show the current mode (airline.vim takes care of us)
 
 "Always show current position
 set ruler
+
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
 
 "" Height of the command bar
 "set cmdheight=2
@@ -82,6 +104,16 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+" Make invisible chars less visible in terminal.
+autocmd vimrc ColorScheme * :hi NonText ctermfg=236
+autocmd vimrc ColorScheme * :hi SpecialKey ctermfg=236
+" Show trailing whitespace.
+autocmd vimrc ColorScheme * :hi ExtraWhitespace ctermbg=red guibg=red
+" Make selection more visible.
+autocmd vimrc ColorScheme * :hi Visual guibg=#00588A
+autocmd vimrc ColorScheme * :hi link multiple_cursors_cursor Search
+autocmd vimrc ColorScheme * :hi link multiple_cursors_visual Visual
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,13 +162,6 @@ set viminfo^=%
 " Always show the status line
 set laststatus=2
 
-" Format the status line
-"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,6 +185,54 @@ map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+set nojoinspaces " Only insert single space after a '.', '?' and '!' with a join command.
+
+" Toggle show tabs and trailing spaces (,c)
+if has('win32')
+  set listchars=tab:>\ ,trail:.,eol:$,nbsp:_,extends:>,precedes:<
+else
+  set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:>,precedes:<
+endif
+"set listchars=tab:>\ ,trail:.,eol:$,nbsp:_,extends:>,precedes:<
+"set fillchars=fold:-
+nnoremap <silent> <leader>v :call ToggleInvisibles()<CR>
+
+" Extra whitespace
+autocmd vimrc BufWinEnter * :2match ExtraWhitespaceMatch /\s\+$/
+autocmd vimrc InsertEnter * :2match ExtraWhitespaceMatch /\s\+\%#\@<!$/
+autocmd vimrc InsertLeave * :2match ExtraWhitespaceMatch /\s\+$/
+
+
+" Toggle Invisibles / Show extra whitespace
+function! ToggleInvisibles()
+  set nolist!
+  if &list
+    hi! link ExtraWhitespaceMatch ExtraWhitespace
+  else
+    hi! link ExtraWhitespaceMatch NONE
+  endif
+endfunction
+
+set nolist
+call ToggleInvisibles()
+
+" Trim extra whitespace
+function! StripExtraWhiteSpace()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfunction
+noremap <leader>ws :call StripExtraWhiteSpace()<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => File types
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim
+autocmd vimrc BufRead .vimrc,*.vim set keywordprg=:help
+
+" markdown
+autocmd vimrc BufRead,BufNewFile *.md set filetype=markdown
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
