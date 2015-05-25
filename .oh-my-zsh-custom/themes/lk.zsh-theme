@@ -7,7 +7,7 @@ PROMPT='%{$FG[$hostcolor]%}%m%{$reset_color%}:%{$fg[blue]%}%c/%{$reset_color%} $
 RPROMPT='[%*]'
 
 # git theming
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}(%{$fg_no_bold[yellow]%}%B"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}(%{$fg_no_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b%{$fg[blue]%})%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}✗"
