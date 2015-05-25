@@ -3,8 +3,8 @@
 execute pathogen#infect()
 
 " Airline
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -28,7 +28,7 @@ set wildignore=*.o,*~,*.pyc
 set ruler
 
 "" Height of the command bar
-set cmdheight=2
+"set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
 set hid
