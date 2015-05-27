@@ -5,6 +5,7 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
     ~/.oh-my-zsh-custom: oh-my-zsh-custom/
+    ~/.ssh/config: ssh_config
     ~/.tmux.conf: tmux.conf
     ~/.tmuxline.conf: tmuxline.conf
     ~/.vim: vim/
