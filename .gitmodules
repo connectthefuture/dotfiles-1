@@ -1,14 +1,14 @@
-[submodule ".vim/bundle/vim-colors-solarized"]
-    path = .vim/bundle/vim-colors-solarized
+[submodule "vim/bundle/vim-colors-solarized"]
+    path = vim/bundle/vim-colors-solarized
     url = https://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/vim-airline"]
-    path = .vim/bundle/vim-airline
+[submodule "vim/bundle/vim-airline"]
+    path = vim/bundle/vim-airline
     url = https://github.com/bling/vim-airline.git
-[submodule ".vim/bundle/vim-kolor"]
-    path = .vim/bundle/vim-kolor
+[submodule "vim/bundle/vim-kolor"]
+    path = vim/bundle/vim-kolor
     url = https://github.com/zeis/vim-kolor.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
 [submodule "dotbot"]
 	path = dotbot
