@@ -3,14 +3,17 @@
 - link:
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
     ~/.oh-my-zsh-custom: oh-my-zsh-custom/
     ~/.tmux.conf: tmux.conf
     ~/.tmuxline.conf: tmuxline.conf
     ~/.vim: vim/
-    ~/.vimrc: vimrc
-    ~/.zshrc: 
-        path: zshrc
+    ~/.vimrc:
+        relink: true
+        path: vimrc
+    ~/.zshrc:
         force: true
+        path: zshrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
