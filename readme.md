@@ -1,3 +1,3 @@
 # Dotfiles
 
-My Ubuntu dotfiles.
+My Ubuntu/Mac dotfiles.
