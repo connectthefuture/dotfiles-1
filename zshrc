@@ -10,7 +10,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR='vim'
 export TERM=xterm-256color
-eval "$(rbenv init -)"
 
 h=()
 if [[ -r ~/.ssh/config ]]; then
@@ -22,4 +21,8 @@ fi
 if [[ $#h -gt 0 ]]; then
     zstyle ':completion:*:ssh:*' hosts $h
     zstyle ':completion:*:slogin:*' hosts $h
+fi
+
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
 fi
