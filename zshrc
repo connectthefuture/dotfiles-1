@@ -11,6 +11,10 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='vim'
 export TERM=xterm-256color
 
+# Aliases
+alias zshreload="source ~/.zshrc"
+
+# SSH tab completion needs a little help
 h=()
 if [[ -r ~/.ssh/config ]]; then
       h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
@@ -23,6 +27,8 @@ if [[ $#h -gt 0 ]]; then
     zstyle ':completion:*:slogin:*' hosts $h
 fi
 
+# Local config
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+
