@@ -11,4 +11,4 @@
 [help]
   autocorrect = 1
 [include]
-  path=~\.gitalias
+  path=~/.gitalias
