@@ -1,6 +1,10 @@
 " Change mapleader
 let mapleader=","
 
+if has('mouse')
+  set mouse=a
+endif
+
 " Move more naturally up/down when wrapping is enabled.
 nnoremap j gj
 nnoremap k gk
@@ -113,6 +117,17 @@ autocmd vimrc ColorScheme * :hi ExtraWhitespace ctermbg=red guibg=red
 autocmd vimrc ColorScheme * :hi Visual guibg=#00588A
 autocmd vimrc ColorScheme * :hi link multiple_cursors_cursor Search
 autocmd vimrc ColorScheme * :hi link multiple_cursors_visual Visual
+
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Sauce_Code_Powerline:h11:cANSI
+    set mousehide
+  endif
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
