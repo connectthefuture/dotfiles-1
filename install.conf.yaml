@@ -4,6 +4,7 @@
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
+    ~/.gitalias: gitalias
     ~/.oh-my-zsh-custom: oh-my-zsh-custom/
     ~/.ssh/config: ssh_config
     ~/.tmux.conf: tmux.conf

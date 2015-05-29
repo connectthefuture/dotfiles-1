@@ -1,0 +1,39 @@
+[alias]
+  a = add
+  aliases = config --get-regexp alias
+  amend = commit -a --amend
+  bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+  bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+  ca = commit --amend -C HEAD
+  cleanup = !git remote prune origin && git gc && git clean -dfx && git stash clear
+  cm = !git add -A && git commit -m
+  co = checkout
+  cob = checkout -b
+  d = diff
+  dc = diff --cached
+  done = !git fetch && git rebase origin/master && git checkout master && git merge @{-1} && git push
+  ec = config --global -e
+  hist = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) [%an]%Creset' --graph --abbrev-commit --date=relative
+  ir = !git rebase -i origin/master
+  l = log
+  l1 = log --pretty=format:'%s * %an, %ar' --graph
+  l2 = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  l3 = log --pretty=format:'%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]' --decorate
+  la = "!git config -l | grep alias | cut -c 7-"
+  last = log -1 HEAD
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  pp = !git pull && git push
+  save = !git add -A && git commit -m 'SAVEPOINT'
+  st = status -s
+  standup = log --since yesterday --oneline --author 'Luke Kuszaj'
+  stats = diff --stat
+  today = log --stat --since='1 day ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  undo = reset head~
+  undo = reset HEAD~1 --mixed
+  unstage = reset HEAD --
+  up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+  wdiff = diff --word-diff
+  who = shortlog -s -e --no-merges --
+  wip = !git add -u && git commit -m "WIP"
+  wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
