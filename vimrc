@@ -1,7 +1,7 @@
 " Change mapleader
 let mapleader=","
 
-if has('mouse')
+if has('gui_running')
   set mouse=a
 endif
 
