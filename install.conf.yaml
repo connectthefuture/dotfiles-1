@@ -20,4 +20,3 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/tmp, Creating tmp directory]
-  - [source ~/.zshrc, Reloading zsh config]
