@@ -25,6 +25,9 @@
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   pp = !git pull && git push
   save = !git add -A && git commit -m 'SAVEPOINT'
+  # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+  snapshots = !git stash list --grep snapshot
   st = status -s
   standup = log --since yesterday --oneline --author 'Luke Kuszaj'
   stats = diff --stat
