@@ -31,3 +31,9 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 #Don't display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Show the ~/Library folder.
+chflags nohidden ~/Library
