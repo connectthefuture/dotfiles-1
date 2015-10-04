@@ -1,1 +1,1 @@
-plugins=(ubuntu command-not-found)
+plugins=(ubuntu command-not-found colored-man)
