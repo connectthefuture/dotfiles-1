@@ -33,7 +33,7 @@
 - shell:
   -
     - "git submodule update --init --recursive"
-    - "Installing submodules]"
+    - "Installing submodules"
   -
     - "wget -O- http://cpanmin.us | perl - -l ~/perl5 App::cpanminus local::lib"
     - "Fetching and installing cpanminus"
