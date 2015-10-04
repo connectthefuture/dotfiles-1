@@ -36,7 +36,7 @@ fi
 # Local config
 
 # System-specific
-os = ${$(echo `uname`):l}
+os=${$(echo `uname`):l}
 if [ -f ~/.zshrc_$os ]; then
     source ~/.zshrc_$os
 fi
