@@ -13,7 +13,7 @@
     ~/.ssh/config: ssh_config
     ~/.tmux.conf: tmux.conf
     ~/.tmuxline.conf: tmuxline.conf
-    ~/.vim: vim/
+    ~/.vim:
         relink: true
         force: true
     ~/.vimrc:
