@@ -1,27 +1,9 @@
 " Change mapleader
 let mapleader=","
 
-if has('gui_running')
-  set mouse=a
-endif
-
 " Move more naturally up/down when wrapping is enabled.
 nnoremap j gj
 nnoremap k gk
-
-" Local dirs
-if !has('win32')
-  set backupdir=$DOTFILES/caches/vim
-  set directory=$DOTFILES/caches/vim
-  set undodir=$DOTFILES/caches/vim
-  let g:netrw_home = expand('$DOTFILES/caches/vim')
-endif
-
-" Create vimrc autocmd group and remove any existing vimrc autocmds,
-" in case .vimrc is re-sourced.
-augroup vimrc
-  autocmd!
-augroup END
 
 " Pathogen
 execute pathogen#infect()
@@ -54,7 +36,7 @@ set textwidth=80
 set colorcolumn=+1
 
 "" Height of the command bar
-"set cmdheight=2
+set cmdheight=1
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -93,6 +75,16 @@ set t_vb=
 set tm=500
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Create vimrc autocmd group and remove any existing vimrc autocmds,
+" in case .vimrc is re-sourced.
+augroup vimrc
+  autocmd!
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
@@ -106,7 +98,7 @@ let g:airline_theme = 'solarized'
 set encoding=utf8
 
 " Use Unix as the standard file type
-set ffs=unix,dos,mac
+set fileformats=unix,mac,dos
 
 " Make invisible chars less visible in terminal.
 autocmd vimrc ColorScheme * :hi NonText ctermfg=236
@@ -117,17 +109,6 @@ autocmd vimrc ColorScheme * :hi ExtraWhitespace ctermbg=red guibg=red
 autocmd vimrc ColorScheme * :hi Visual guibg=#00588A
 autocmd vimrc ColorScheme * :hi link multiple_cursors_cursor Search
 autocmd vimrc ColorScheme * :hi link multiple_cursors_visual Visual
-
-if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
-  elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
-  elseif has("gui_win32")
-    set guifont=Sauce_Code_Powerline:h11:cANSI
-    set mousehide
-  endif
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -204,12 +185,7 @@ map <leader>pp :setlocal paste!<cr>
 set nojoinspaces " Only insert single space after a '.', '?' and '!' with a join command.
 
 " Toggle show tabs and trailing spaces (,c)
-if has('win32')
-  set listchars=tab:>\ ,trail:.,eol:$,nbsp:_,extends:>,precedes:<
-else
-  set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:>,precedes:<
-endif
-"set listchars=tab:>\ ,trail:.,eol:$,nbsp:_,extends:>,precedes:<
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:>,precedes:<
 "set fillchars=fold:-
 nnoremap <silent> <leader>v :call ToggleInvisibles()<CR>
 
