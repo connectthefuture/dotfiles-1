@@ -16,6 +16,7 @@
     ~/.vim:
         relink: true
         force: true
+        path: vim/
     ~/.vimrc:
         relink: true
         path: vimrc
