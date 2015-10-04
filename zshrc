@@ -33,8 +33,12 @@ if [[ $#h -gt 0 ]]; then
     zstyle ':completion:*:slogin:*' hosts $h
 fi
 
-# Local config
+# Perl config (from http://stackoverflow.com/questions/2980297/how-can-i-use-cpan-as-a-non-root-user)
 
+eval `perl -I ~/perl5/lib/perl5 -Mlocal::lib`
+export MANPATH=$HOME/perl5/man:$MANPATH
+
+# Local config
 # System-specific
 os=${$(echo `uname`):l}
 if [ -f ~/.zshrc_$os ]; then
