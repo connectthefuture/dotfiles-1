@@ -4,7 +4,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME="lk"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git tmux tmuxinator git-flow colorize compleat dirpersist git-flow ssh-agent)
+plugins=(git git-flow colorize compleat git-flow)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/bin"
 source $ZSH/oh-my-zsh.sh
