@@ -1,1 +1,1 @@
-plugins=(ubuntu)
+plugins=(ubuntu command-not-found)
