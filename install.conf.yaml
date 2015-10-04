@@ -14,12 +14,20 @@
     ~/.tmux.conf: tmux.conf
     ~/.tmuxline.conf: tmuxline.conf
     ~/.vim: vim/
+        relink: true
+        force: true
     ~/.vimrc:
         relink: true
         path: vimrc
     ~/.zshrc:
         force: true
         path: zshrc
+    ~/.zshrc_linux:
+        force: true
+        path: zshrc_linux
+    ~/.zshrc_darwin:
+        force: true
+        path: zshrc_darwin
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
