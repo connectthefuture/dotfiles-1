@@ -75,16 +75,6 @@ set t_vb=
 set tm=500
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Create vimrc autocmd group and remove any existing vimrc autocmds,
-" in case .vimrc is re-sourced.
-augroup vimrc
-  autocmd!
-augroup END
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
@@ -99,6 +89,17 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set fileformats=unix,mac,dos
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Create vimrc autocmd group and remove any existing vimrc autocmds,
+" in case .vimrc is re-sourced.
+augroup vimrc
+  autocmd!
+augroup END
+
 
 " Make invisible chars less visible in terminal.
 autocmd vimrc ColorScheme * :hi NonText ctermfg=236
