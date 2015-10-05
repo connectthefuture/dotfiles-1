@@ -4,7 +4,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME="lk"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git git-flow colorize compleat git-flow)
+plugins=(git git-flow colorize compleat git-flow colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
