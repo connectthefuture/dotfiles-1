@@ -1,5 +1,3 @@
-if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
-
 hostcolor=$((16 + $(hostname | cksum | cut -c1-6) % 216))
 
 PROMPT='%{$FG[${(l:3::0:)hostcolor}]%}%m%{$reset_color%}:%{$fg[blue]%}%c/%{$reset_color%} $(git_prompt_info)%(!.#.$) '
