@@ -1,47 +1,53 @@
-"
-" Plugins {{{
+ " Plugins {{{
 " Pathogen {{{
+
 execute pathogen#infect()
-" }}}
-" Airline {{{
+
+"  }}}
+"  Airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set timeoutlen=50
+
 " }}}
+
 " }}}
 " Fonts and colors {{{
-"
-colorscheme solarized 
+
+set t_Co=256 
+colorscheme PaperColor 
 syntax enable
 set background=dark
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'PaperColor'
+
 " Encoding
 set encoding=utf8
 set fileencoding=utf-8
 set fileencodings=utf-8
+
 " }}}
 " Tabs {{{
-"
+
 set tabstop=4           " number of visual spaces per TAB
+set shiftwidth=4        " number of spaces used for each step of (auto)indent
 set softtabstop=4       " number of spaces in tab when editing
 set expandtab           " tabs are spaces
 set smarttab            " be smart when using tab
 set autoindent          " autoindent
-set modelines=1
+set modelines=1         " enable using settings from modelines when reading a file
+
 " }}}
-" UI {{{
-"
+ " UI {{{
+
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
 filetype plugin on
 filetype indent on      " load filetype-specific indent files
 set wildmenu            " visual autocomplete for command menu
-set lazyredraw          " redraw only when we need to.
+" set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set ruler               " show current position
-set textwidth=80        " make it obvious where 80 characters is
-set colorcolumn=+1
 set cmdheight=1         " height of the command bar
 set noerrorbells         
 set novisualbell        
@@ -52,9 +58,10 @@ set hid                 " buffer becomes hidden when it is abandoned
 set so=7                " set 7 lines to the cursor - when moving vertically
 set title               " set terminal title to filename
 set history=50          " keep 50 commands and 50 search patterns in the history.
+set ttyfast             " terminal connection is fast
+
 " }}}
 " Search {{{
-"
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 set ignorecase          " ignore case when 
@@ -62,40 +69,44 @@ set smartcase           " be smart about case when searching
 set magic               " for regexp turn magic on
 " }}}
 " Folding {{{
-"
+
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 " space open/closes folds
 nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
+
 " }}}
 " Movement {{{
-"
+
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+
 " }}}
 " Leader {{{
 "
 let mapleader=","       " leader is comma
 " }}}
 " Backup {{{
-" 
+ 
 set nobackup
 set nowb
 set noswapfile
+
 " }}}
 " Shortcuts {{{
-"
+
 "Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 " Ctrp+n to toggle NerdTree
 map <C-n> :NERDTreeToggle<CR>
+
 " }}}
- " Config groups {{{
-"
+" Config groups {{{
+
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
@@ -106,9 +117,10 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal shiftwidth=2
     autocmd BufEnter *.sh setlocal softtabstop=2
 augroup END
-" }}}
+
+ " }}}
 " Misc {{{
-"
+
 " Reload .vimrc after saving
 autocmd bufwritepost .vimrc source $MYVIMRC
 
