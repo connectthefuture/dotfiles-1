@@ -44,3 +44,7 @@ if [[ $#h -gt 0 ]]; then
     zstyle ':completion:*:slogin:*' hosts $h
 fi
 
+zmodload -a colors
+zmodload -a autocomplete
+zmodload -a complist
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
