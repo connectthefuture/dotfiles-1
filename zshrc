@@ -5,7 +5,6 @@ ZSH_THEME="lk"
 ENABLE_CORRECTION=true
 COMPLETION_WAITING_DOTS=true
 DISABLE_UPDATE_PROMPT=true
-source $ZSH/oh-my-zsh.sh
 
 plugins=(git git-flow)
 
@@ -25,6 +24,8 @@ fi
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+
+source $ZSH/oh-my-zsh.sh
 
 # Perl config
 # (from http://stackoverflow.com/questions/2980297/how-can-i-use-cpan-as-a-non-root-user)
