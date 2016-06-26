@@ -1,1 +1,3 @@
-plugins=(brew osx git git-flow)
+plugins+=(zsh-completions brew osx git git-flow)
+autoload -U compinit && compinit
+
