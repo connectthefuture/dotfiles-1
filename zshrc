@@ -7,6 +7,8 @@ COMPLETION_WAITING_DOTS=true
 DISABLE_UPDATE_PROMPT=true
 source $ZSH/oh-my-zsh.sh
 
+plugins=(git git-flow)
+
 # Load exports
 source ~/.exports
 
