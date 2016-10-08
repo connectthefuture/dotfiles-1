@@ -6,6 +6,7 @@ execute pathogen#infect()
 "  }}}
 "  Airline {{{
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_powerline_fonts = 1
 set timeoutlen=50
 
@@ -15,10 +16,10 @@ set timeoutlen=50
 " Fonts and colors {{{
 
 set t_Co=256 
-colorscheme PaperColor 
+colorscheme solarized 
 syntax enable
 set background=dark
-let g:airline_theme = 'PaperColor'
+let g:airline_theme = 'solarized'
 
 " Encoding
 set encoding=utf8
